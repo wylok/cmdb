@@ -1,0 +1,34 @@
+info:
+  contact: {}
+  title: 混合云-CDMB平台API
+  version: "1.0"
+paths:
+  /web/v1/cmdb/agent:
+    post:
+      parameters:
+      - description: AgentId
+        in: query
+        name: agent_id
+        required: true
+        type: string
+      - description: Data
+        in: query
+        name: data
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":True,"data":{},"msg":"ok"}'
+          schema:
+            type: string
+      summary: Agent上报数据
+      tags:
+      - 主机Agent
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: token
+    type: apiKey
+swagger: "2.0"

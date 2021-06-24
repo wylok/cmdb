@@ -1,0 +1,52 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "混合云-CDMB平台API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/web/v1/cmdb/agent": {
+            "post": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "主机Agent"
+                ],
+                "summary": "Agent上报数据",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "AgentId",
+                        "name": "agent_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "Data",
+                        "name": "data",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":True,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "token",
+            "in": "header"
+        }
+    }
+}
